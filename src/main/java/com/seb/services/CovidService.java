@@ -20,6 +20,7 @@ public class CovidService implements ICovidService {
         String jsonStr = this.urlService.getUrlAsString(
                 "https://s1.quebecormedia.com/infojdem/2020/c19d/data/data.json");
 
+        // TODO: caster en objets specifique...
         JSONObject jsonObj = new JSONObject(jsonStr);
         JSONArray regions = (JSONArray)jsonObj.get("regions");
         
