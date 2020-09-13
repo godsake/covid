@@ -3,8 +3,8 @@ package com.seb.services;
 import java.net.*;
 import java.io.*;
 
-public class URLHelper {
-    public static String getUrlAsString(String url) throws Exception{
+public class UrlService implements IUrlService {
+    public String getUrlAsString(String url) throws Exception{
         URL oracle = new URL(url);
         BufferedReader in = new BufferedReader(
         new InputStreamReader(oracle.openStream()));
@@ -16,9 +16,5 @@ public class URLHelper {
         in.close();
 
         return sb.toString();
-    }
-
-    public void test(){
-        System.out.println("TEST!!!!");
     }
 }

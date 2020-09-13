@@ -15,7 +15,7 @@ public class CovidController {
 	public String index(String region) throws Exception {
         CovidResult result = covidService.getCovidResult(region);
 
-        return "Région: " + region + ": Cas: " + result.getNbrInfected() + 
+        return region + ": Cas: " + result.getNbrInfected() + 
                     " / Mort(s): " + result.getNbrDeath();
 	}
 }
