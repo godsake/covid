@@ -1,8 +1,8 @@
 package com.seb.covid;
 
 public class CovidResult {
-    private int nbrInfected=100;
-    private int nbrDeath=10;
+    private int nbrInfected=-1;
+    private int nbrDeath=-1;
 
     public int getNbrInfected() {
         return nbrInfected;

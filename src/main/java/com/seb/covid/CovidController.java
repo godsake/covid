@@ -6,10 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RestController
 public class CovidController {
     @RequestMapping("/")
-	public String index() {
+	public String index() throws Exception {
         ICovidService covidService = ServiceFactory.getCovidService();
-		int res = covidService.getCovidResult(
-			CovidRegionEnum.CENTRE_QUEBEC).getNbrDeath();
-		return "Greetings from Spring Boot tutu! NBR: " + res;
+        CovidResult result = covidService.getCovidResult(
+			CovidRegionEnum.CapitaleNationale);
+
+        return "NBR CAS: " + result.getNbrInfected() + 
+                    " -- NBR mort capitale nationale: " + result.getNbrDeath();
 	}
 }
