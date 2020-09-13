@@ -1,17 +1,23 @@
 package com.seb.covid;
 
+import com.seb.services.*;
+
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
 public class CovidController {
-    @RequestMapping("/")
-	public String index() throws Exception {
-        ICovidService covidService = ServiceFactory.getCovidService();
-        CovidResult result = covidService.getCovidResult(
-			CovidRegionEnum.CapitaleNationale);
+    // @Autowired()
+    // private ICovidService covidService;
 
-        return "NBR CAS: " + result.getNbrInfected() + 
-                    " -- NBR mort capitale nationale: " + result.getNbrDeath();
+    @RequestMapping("/covid")
+	public String index(String region) throws Exception {
+        System.out.println("region: " + region);
+        ICovidService covidService = ServiceFactory.getCovidService();
+        CovidResult result = covidService.getCovidResult(region);
+
+        return "Région: " + region + ": Cas: " + result.getNbrInfected() + 
+                    " / Mort(s): " + result.getNbrDeath();
 	}
 }

@@ -1,4 +1,4 @@
-package com.seb.covid;
+package com.seb.services;
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.BeanFactory;

@@ -1,4 +1,4 @@
-package com.seb.covid;
+package com.seb.services;
 
 public class CovidResult {
     private int nbrInfected=-1;

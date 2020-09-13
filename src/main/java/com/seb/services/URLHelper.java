@@ -1,4 +1,4 @@
-package com.seb.covid;
+package com.seb.services;
 
 import java.net.*;
 import java.io.*;
@@ -16,5 +16,9 @@ public class URLHelper {
         in.close();
 
         return sb.toString();
+    }
+
+    public void test(){
+        System.out.println("TEST!!!!");
     }
 }
