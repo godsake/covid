@@ -1,5 +1,8 @@
 package com.seb.covid;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.seb.services.*;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +13,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CovidController {
     @Autowired()
     private ICovidService covidService;
+
+    @RequestMapping(value = "/testJson", produces = "application/json; charset=utf-8")
+    public String testJson() throws Exception, JsonProcessingException {
+        CovidResult cr = new CovidResult();
+        cr.setNbrDeath(111);
+        cr.setNbrInfected(2000);
+        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+        return ow.writeValueAsString(cr);
+    }
 
     @RequestMapping("/covid")
 	public String index(String region) throws Exception {
